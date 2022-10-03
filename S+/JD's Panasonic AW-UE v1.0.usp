@@ -1,0 +1,1917 @@
+/*    (      
+      )\ )   
+   ( (()/(   
+   )\ /(_))  
+  ((_|_))_   
+ _ | ||   \  
+| || || |) | 
+ \__/ |___/  
+             
+*/
+//Compiler Directives
+
+#SYMBOL_NAME "JD's PanasonicUE v1"
+#CATEGORY "46" "JD's Modules" // Custom
+
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+#Output_Shift 2
+#USER_SIMPLSHARP_LIBRARY "PanasonicUE"
+
+
+//Parameters
+              
+string_parameter IP_Address[16];
+
+#begin_parameter_properties  IP_Address
+
+   propValidUnits	= unitString;
+
+   propDefaultUnit	= unitString;
+
+   propDefaultValue	= "192.168.1.100";
+
+   propShortDescription = "Device IP Address";
+
+#end_parameter_properties
+
+integer_parameter debug;
+
+#begin_parameter_properties debug 
+
+   propValidUnits	= unitDecimal;
+
+   propDefaultUnit	= unitDecimal;
+
+   propDefaultValue	= 0d;
+
+   propList = { 0d ,"disable" },{ 1d ,"enable" };
+                                                                                                                                                                                            
+   propShortDescription = "Debug Mode";
+
+#end_parameter_properties
+
+                                    
+
+//IO Variables
+
+Digital_Input
+_skip_,
+_skip_,
+Connect,
+_skip_,
+_skip_,
+PowerOn,
+PowerOff,
+_skip_,
+Pan_Left,
+Pan_Right,
+Tilt_Up,
+Tilt_Down,
+_skip_,
+Gesture_Press,
+_skip_,
+Zoom_Tele,
+Zoom_Wide,
+_skip_,
+Focus_Auto,
+Focus_Manual,
+Focus_Near,
+Focus_Far,
+One_Touch_AutoFocus,
+_skip_,
+FullAuto,
+Scene1,
+Scene2,
+Scene3,
+_skip_,
+Iris_Auto,
+Iris_Manual,
+Iris_Open,
+Iris_Close,
+_skip_,
+Gain_Up,
+Gain_Down,
+_skip_,
+AutoWhiteBalance,
+AutoBlackBalance,
+WhiteBalance_Up,
+WhiteBalance_Down,
+_skip_,
+Shutter_Up,
+Shutter_Down,
+_skip_,
+Desktop,
+Hanging,
+_skip_,
+Privacy_On,
+Privacy_Off,
+_skip_,
+PanTiltSpeed_Normal,
+PanTiltSpeed_Fast1,
+PanTiltSpeed_Fast2,
+_skip_,
+Digital_Zoom_On,
+Digital_Zoom_Off,
+_skip_,
+AutoIrisSpeed_Slow,
+AutoIrisSpeed_Normal,
+AutoIrisSpeed_Fast,
+_skip_,
+AutoIrisWindow_Normal1,
+AutoIrisWindow_Normal2,
+AutoIrisWindow_Center,
+_skip_,
+IrisLimit_On,
+IrisLimit_Off,
+_skip_,
+FocusAdjustWithPTZ_On,
+FocusAdjustWithPTZ_Off,
+_skip_,
+AFSensitivity_Normal,
+AFSensitivity_Stable,
+_skip_;
+
+Analog_Input
+_skip_,
+xAxis_AbsoluteControl,
+yAxis_AbsoluteControl,
+_skip_,
+Zoom_Speed,
+Zoom_Position,
+_skip_,
+Focus_Position,
+_skip_,
+Iris_Position,
+_skip_,
+Picture_Level,
+_skip_,
+xAxis_GestureControl,
+yAxis_GestureControl,
+_skip_,
+xAxis_RelativeControl,
+yAxis_RelativeControl,
+_skip_,
+xAxis_AutoFocus,
+yAxis_AutoFocus,
+_skip_,
+Recall_Preset,
+Save_Preset,
+Delete_Preset,
+_skip_,
+Save_Preset_with_Name;
+                
+
+Digital_Output
+IsConnected,
+_skip_,
+_skip_,
+PowerStatus,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+Focus_Is_Auto,
+Focus_Is_Manual,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+FullAutoIsOn,
+Scene1IsOn,
+Scene2IsOn,
+Scene3IsOn,
+_skip_,
+Iris_Is_Auto,
+Iris_Is_Manual,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+IsDesktop,
+IsHanging,
+_skip_,
+PrivacyIsOn,
+PrivacyIsOff,
+_skip_,
+PanTiltSpeed_IsNormal,
+PanTiltSpeed_IsFast1,
+PanTiltSpeed_IsFast2,
+_skip_,
+Digital_Zoom_IsOn,
+Digital_Zoom_IsOff,
+_skip_,
+AutoIrisSpeed_IsSlow,
+AutoIrisSpeed_IsNormal,
+AutoIrisSpeed_IsFast,
+_skip_,
+AutoIrisWindow_IsNormal1,
+AutoIrisWindow_IsNormal2,
+AutoIrisWindow_IsCenter,
+_skip_,
+IrisLimit_IsOn,
+IrisLimit_IsOff,
+_skip_,
+FocusAdjustWithPTZ_IsOn,
+FocusAdjustWithPTZ_IsOff,
+_skip_,
+AFSensitivity_IsNormal,
+AFSensitivity_IsStable,
+_skip_,
+Normal,
+Fan_Error,
+Other_Error;
+
+Analog_Output
+_skip_,
+PanPos,
+TiltPos,
+_skip_,
+Zoom_Speed_FB,
+Zoom_Position_FB,
+_skip_,
+Focus_Position_FB,
+_skip_,
+Iris_Position_FB,
+_skip_,
+Picture_Level_FB,
+_skip_;
+
+
+String_Output
+_skip_,
+Model,
+Title,
+Format,
+Frequency,
+_skip_,
+Iris_F_Number,
+_Skip_,
+Gain,
+_skip_,
+WhiteBalanceMode,
+_skip_,
+ShutterMode,
+_skip_,
+Step_Value,
+Synchro_Value,
+_skip_,
+Selected_Preset_Name,
+_skip_,
+Error;
+
+
+Digital_Input
+_skip_,
+_skip_,
+_skip_,
+_skip_,
+PresetBankSelect[12,12];
+
+Digital_Output
+_skip_,
+PresetBankFB[12,12];
+
+String_Input
+_skip_,
+New_Preset_Name[15];
+
+String_Output
+_skip_,
+Preset_Name[9],
+_skip_,
+Preset_Image[9,9];
+                       
+  
+Core			myCore;
+
+      	     
+           
+//IP Sockets
+
+
+//Global Variables
+
+Integer giPresetPresent[100];
+
+String gsPresetName[32];
+
+
+
+//Functions
+
+Function UpdatePresetImage(integer valueOneBased)
+{
+
+	integer arrayIndex;
+  
+ 	if (valueOneBased >= 1 && valueOneBased <= 9)
+	{
+    	arrayIndex = valueOneBased;
+	}
+
+	else if (valueOneBased >= 10 && valueOneBased <= 18)
+	{
+    	arrayIndex = valueOneBased - 9;
+	}
+
+	else if (valueOneBased >= 19 && valueOneBased <= 27)
+	{
+    	arrayIndex = valueOneBased - 18;
+	}
+
+    else if (valueOneBased >= 28 && valueOneBased <= 36)
+	{
+    	arrayIndex = valueOneBased - 27;
+	}
+      
+	else if (valueOneBased >= 37 && valueOneBased <= 45)
+	{
+    	arrayIndex = valueOneBased - 36;
+	}
+
+	else if (valueOneBased >= 46 && valueOneBased <= 54)
+	{
+    	arrayIndex = valueOneBased - 45;
+	}
+
+	else if (valueOneBased >= 55 && valueOneBased <= 63)
+	{
+    	arrayIndex = valueOneBased - 54;
+	}
+
+	else if (valueOneBased >= 64 && valueOneBased <= 72)
+	{
+    	arrayIndex = valueOneBased - 63;
+	}
+
+	else if (valueOneBased >= 73 && valueOneBased <= 81)
+	{
+    	arrayIndex = valueOneBased - 72;
+	}
+
+	else if (valueOneBased >= 82 && valueOneBased <= 90)
+	{
+    	arrayIndex = valueOneBased - 81;
+	}
+
+	else if (valueOneBased >= 91 && valueOneBased <= 99)
+	{
+    	arrayIndex = valueOneBased - 90;
+	}
+
+	else if (valueOneBased >= 100)
+	{
+    	arrayIndex = valueOneBased - 99;
+	}
+
+   	else
+	{
+		//	Do something later...
+	}
+
+
+	Makestring(Preset_Image[arrayIndex], "http://%s/cgi-bin/get_preset_thumbnail?preset_number=%d", IP_Address, valueOneBased);
+}
+
+
+//Events
+           
+Push Connect
+{                          
+	myCore.Initialise(IP_Address, debug);
+}
+
+Release Connect 
+{
+	myCore.Dispose();
+}
+    
+
+// Power
+
+Push PowerOn
+{
+	myCore.OnPower(1);
+}
+
+Push PowerOff
+{
+	myCore.OnPower(0);
+}
+
+
+// Pan Tilt
+       
+Threadsafe Push Pan_Left
+{	
+	myCore.OnPanSpeedControl(25);
+}
+       
+Threadsafe Push Pan_Right
+{
+	myCore.OnPanSpeedControl(75);
+}
+
+Release Pan_Left, Pan_Right
+{
+	myCore.OnPanSpeedControl(50);
+}
+
+      
+Threadsafe Push Tilt_Up
+{
+	myCore.OnTiltSpeedControl(75);
+}
+       
+Threadsafe Push Tilt_Down
+{
+	myCore.OnTiltSpeedControl(25);
+}
+
+Release Tilt_Up, Tilt_Down
+{
+	myCore.OnTiltSpeedControl(50);
+}
+
+// Analog PTZ
+
+Threadsafe Change xAxis_GestureControl, yAxis_GestureControl
+{
+	If (Gesture_Press)
+	{
+     	myCore.OnPanTiltSpeedControl(xAxis_GestureControl, yAxis_GestureControl);
+	}
+}
+
+Threadsafe Release Gesture_Press
+{
+	myCore.OnPanTiltSpeedControl(32768, 32768);
+}
+
+Change xAxis_AbsoluteControl, yAxis_AbsoluteControl
+
+{
+	myCore.OnPanTiltAbsolutePosition(xAxis_AbsoluteControl, yAxis_AbsoluteControl);
+}
+          
+   
+Change xAxis_RelativeControl, yAxis_RelativeControl
+{
+	myCore.OnPanTiltRelativePosition(xAxis_RelativeControl, yAxis_RelativeControl, 640);
+}
+
+   
+// Touch AutoFocus
+
+Change xAxis_AutoFocus, yAxis_AutoFocus
+{
+	myCore.OnTouchAF(xAxis_AutoFocus, yAxis_AutoFocus);
+}
+
+// Zoom
+
+Push Zoom_Tele
+{
+	myCore.OnZoomSpeedControl(1);
+}
+
+Push Zoom_Wide
+{
+  	myCore.OnZoomSpeedControl(2);
+}
+
+Release Zoom_Tele, Zoom_Wide
+{
+	myCore.OnZoomSpeedControl(0);
+}
+   
+Change Zoom_Speed
+{
+	myCore.OnZoomSpeedChange(Zoom_Speed);
+}    
+
+Change Zoom_Position
+{
+	myCore.OnZoomPositionControl(Zoom_Position);
+}
+
+// Focus
+
+Push Focus_Auto
+{
+	myCore.OnFocusMode(1);
+}
+
+Push Focus_Manual
+{
+ 	myCore.OnFocusMode(0);
+}
+
+Push Focus_Near
+{
+	myCore.OnFocusSpeedControl(75);
+}
+
+Push Focus_Far
+{
+	myCore.OnFocusSpeedControl(25);
+}
+
+Release Focus_Near, Focus_Far
+{
+	myCore.OnFocusSpeedControl(50);
+}   
+
+Push One_Touch_AutoFocus
+{
+	myCore.OnPushAF(1);
+}
+      
+Change Focus_Position
+{
+	myCore.OnFocusPositionControl(Focus_Position);
+}
+
+
+// Iris
+  
+
+Push FullAuto
+{
+ 	myCore.OnSceneFile(4);
+}
+
+Push Scene1
+{
+ 	myCore.OnSceneFile(1);
+}
+
+Push Scene2
+{
+	myCore.OnSceneFile(2);
+}
+ 
+Push Scene3
+{
+ 	myCore.OnSceneFile(3);
+}
+
+Push Iris_Auto
+{
+	myCore.OnIrisMode(1); 	
+}
+
+Push Iris_Manual
+{
+ 	myCore.OnIrisMode(0);
+}
+
+Push Iris_Close
+{
+	myCore.OnIrisControl(0);
+}
+
+Push Iris_Open
+{
+	myCore.OnIrisControl(1);
+} 
+
+Push Gain_Up
+{
+ 	myCore.OnGainInc();
+}
+
+Push Gain_Down
+{
+ 	myCore.OnGainDec();
+}
+
+Push AutoWhiteBalance
+{
+	myCore.OnAWB();
+}
+
+Push AutoBlackBalance
+{
+	myCore.OnABB();	
+}
+
+Push WhiteBalance_Up
+{
+	myCore.OnWhiteBalanceModeDec();
+}
+
+Push WhiteBalance_Down
+{
+	myCore.OnWhiteBalanceModeInc();
+}
+
+Push Shutter_Up
+{
+	myCore.OnShutterInc();
+}
+
+Push Shutter_Down
+{
+ 	myCore.OnShutterDec();
+}
+
+Change Iris_Position
+{
+	myCore.OnIrisPositionControl(Iris_Position);
+}
+     
+Change Picture_Level
+{
+	myCore.OnPictureLevel(Picture_level);
+}
+
+
+// Installed Position
+
+Push Desktop
+{
+	myCore.OnInstallPosition(0);
+}
+
+Push Hanging
+{
+	myCore.OnInstallPosition(1);
+}
+     
+// Pan Tilt Speed Mode
+
+Push PanTiltSpeed_Normal
+{
+	myCore.OnPTSpeedMode(0);
+}
+
+Push PanTiltSpeed_Fast1
+{
+	myCore.OnPTSpeedMode(1);
+}
+
+Push PanTiltSpeed_Fast2
+{
+	myCore.OnPTSpeedMode(2);
+}
+       
+// Digital Zoom
+
+Push Digital_Zoom_On
+{
+ 	myCore.OnDigitalZoom(1);
+}
+
+Push Digital_Zoom_Off
+{
+	myCore.OnDigitalZoom(0);	
+}
+
+// Auto Iris Speed
+
+Push AutoIrisSpeed_Slow
+{
+ 	myCore.OnAutoIrisSpeed(0);
+}
+
+Push AutoIrisSpeed_Normal
+{
+ 	myCore.OnAutoIrisSpeed(1);
+}
+
+Push AutoIrisSpeed_Fast
+{
+ 	myCore.OnAutoIrisSpeed(2);
+}
+
+// Auto Iris Window
+
+Push AutoIrisWindow_Normal1
+{
+ 	myCore.OnAutoIrisWindow(0);
+}
+
+Push AutoIrisWindow_Normal2
+{
+	myCore.OnAutoIrisWindow(1);
+}
+
+Push AutoIrisWindow_Center
+{
+ 	myCore.OnAutoIrisWindow(2);
+}
+      
+
+// Iris Limit
+
+Push IrisLimit_On
+{
+	myCore.OnIrisLimit(1);
+}
+
+Push IrisLimit_Off
+{
+ 	myCore.OnIrisLimit(0);
+
+}
+
+// Focus Adjust With PTZ
+
+Push FocusAdjustWithPTZ_On
+{
+ 	myCore.OnFocusAdjustWithPTZ(1);
+}
+
+Push FocusAdjustWithPTZ_Off
+{
+	myCore.OnFocusAdjustWithPTZ(0);
+}
+
+// AF Sensitivity
+
+Push AFSensitivity_Normal
+{
+	myCore.OnAFSensitivity(0);
+}
+
+Push AFSensitivity_Stable
+{
+ 	myCore.OnAFSensitivity(0);
+}
+
+
+// Privacy
+
+Push Privacy_On
+{
+	myCore.OnPrivacyMode(1);
+}
+
+Push Privacy_Off
+{
+	myCore.OnPrivacyMode(0);
+}
+  
+
+// Presets
+
+Change PresetBankSelect
+{
+	integer i, j;
+
+	i = getLastModifiedArrayIndex();
+
+	setArray(PresetBankFB, off);
+	PresetBankFB[i] = on;
+
+	myCore.OnGetPresetName(i);
+
+
+	if (i = 1)
+	{
+    	for (j = 1 to 9)
+		{
+        	UpdatePresetImage(j);
+		}
+	}
+
+	else if (i = 2)
+	{
+    	for (j = 10 to 18)
+		{
+        	UpdatePresetImage(j);
+		}
+	}
+		
+	else if (i = 3)
+		{
+	    	for (j = 19 to 27)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 4)
+		{
+	    	for (j = 28 to 36)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 5)
+		{
+	    	for (j = 37 to 45)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 6)
+		{
+	    	for (j = 46 to 54)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 7)
+		{
+	    	for (j = 55 to 63)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 8)
+		{
+	    	for (j = 64 to 72)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+
+	else if (i = 9)
+		{
+	    	for (j = 73 to 81)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 10)
+		{
+	    	for (j = 82 to 90)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+	
+	else if (i = 11)
+		{
+	    	for (j = 91 to 99)
+			{
+	        	UpdatePresetImage(j);
+			}
+		}
+
+	else if (i = 12)
+		{
+			UpdatePresetImage(100);			
+		}
+
+	else
+	{
+    	Trace("Preset Bank Select Error");
+	}
+}
+
+Change Recall_Preset
+{
+	myCore.OnRecallPresetMemory(Recall_Preset);
+}
+
+Change Save_Preset
+{
+	myCore.OnSavePresetMemory(Save_Preset);}
+
+Change Delete_Preset
+{
+	myCore.OnDeletePresetMemory(Delete_Preset);
+}
+
+Change New_Preset_Name
+{
+	gsPresetName = New_Preset_Name;
+}
+
+Change Save_preset_with_Name
+{
+ 	myCore.OnSavePresetName(Save_Preset_with_Name, gsPresetName);
+}
+
+
+// Callback Functions
+
+// ********* Scene Callback **********
+
+
+Callback Function SceneFileHandler(integer data)
+{
+	if (data = 0)
+	{
+      	FullAutoIsOn = Off;
+		Scene1IsOn = On;
+		Scene2IsOn = Off;
+		Scene3IsOn = Off;
+	}
+
+	else if (data = 1)
+	{
+      	FullAutoIsOn = Off;
+		Scene1IsOn = Off;
+		Scene2IsOn = On;
+		Scene3IsOn = Off;
+	}
+
+	else if (data = 2)
+	{
+      	FullAutoIsOn = Off;
+		Scene1IsOn = Off;
+		Scene2IsOn = Off;
+		Scene3IsOn = On;
+	}
+
+	else if (data = 3)
+	{
+      	FullAutoIsOn = On;
+		Scene1IsOn = Off;
+		Scene2IsOn = Off;
+		Scene3IsOn = Off;
+	}
+
+	else
+	{
+		Trace("Scene File Handler: Unknown Value");
+	}
+
+	
+}
+
+ 
+// ********* System Callback **********
+
+
+Callback Function PowerStatusHandler(integer data)
+{
+	PowerStatus = data; 	
+}
+   
+Callback Function ModelHandler(string data)
+{
+  	Model = data;
+}
+
+Callback Function TitleHandler(string data)
+{
+	Title = data; 	
+}
+   
+Callback Function FormatHandler(string data)
+{
+  	Format = data;
+}
+
+Callback Function FrequencyHandler(string data)
+{
+	Frequency = data;}
+
+
+Callback Function USBModeHandler(integer data)
+{
+	Trace("USB Mode Callback");
+}
+
+Callback Function USBAutoActiveHandler(integer data)
+{
+	Trace("USB Auto Active Callback");
+}
+
+Callback Function USBAutoStandbyHandler(integer data)
+{
+	Trace("USB Auto Standby Callback");
+}
+ 
+      
+
+// ********* Lens Callback **********
+
+Callback Function FocusModeHandler(integer data)
+{
+	if (data = 0)
+	{
+     	Focus_Is_Auto = Off;
+		Focus_Is_Manual = On;
+	}
+	
+	else if (data = 1)
+	{
+      	Focus_Is_Auto = On;
+		Focus_Is_Manual = Off;
+	}
+
+	else
+	{
+		Trace("Focus Mode Handler: Unknown Value");
+	}   	
+}
+
+Callback Function DigitalFocusModeHandler(integer data)
+{
+		Trace("DigitalFocusModeHandler Callback"); 	
+}
+
+
+
+Callback Function AFSensitivityHandler(integer data)
+{
+	if (data = 0)
+	{
+     	AFSensitivity_IsNormal = Off;
+		AFSensitivity_IsStable = On;
+	}
+	
+	else if (data = 1)
+	{
+      	AFSensitivity_IsNormal = On;
+		AFSensitivity_IsStable = Off;
+	}
+
+	else
+	{
+		Trace("AFSensitivityModeHandler: Unknown Value");
+	}
+
+}
+
+Callback Function DigitalZoomHandler(integer data)
+{
+	if (data = 0)
+	{
+    	Digital_Zoom_IsOn = Off;
+		Digital_Zoom_IsOff = On;
+	}
+
+	else if (data = 1)
+	{
+    	Digital_Zoom_IsOn = On;
+		Digital_Zoom_IsOff = Off;
+	}	
+
+	else 
+	{
+	    Trace("DigitalZoomHandler: Unknown Value");
+	}
+}
+ 
+
+Callback Function IZoomHandler(integer data)
+{
+	Trace("IZoomHandler Callback");	// No reference in CLZ
+}
+
+Callback Function MaxDigitalZoomHandler(integer data)
+{
+	Trace("MaxDigitalZoomHandler Callback");
+}
+
+Callback Function DigitalExtenderHandler(string data)
+{
+	Trace("DigitalExtenderHandler Callback");
+}
+
+Callback Function ZoomScaleHandler(integer data)
+{
+	Trace("ZoomScaleHandler Callback");
+}
+
+Callback Function DigitalZoomMagnificationHandler(integer data)
+{
+	Trace("DigitalZoomMagnificationHandler Callback");
+}
+
+Callback Function OISHandler(integer data)
+{
+	Trace("OISHandler Callback");
+}
+
+
+Callback Function ZoomSpeedUpdateHandler(integer data)
+{
+	Zoom_Speed_FB = data;
+}
+
+Callback Function ZoomPositionControlHandler(integer data)
+{
+	Zoom_Position_FB = data;
+}
+
+Callback Function FocusPositionControlHandler(integer data)
+{
+	Focus_Position_FB = data;
+}
+
+Callback Function IrisPositionControlHandler(integer data)
+{
+	Iris_Position_FB = data;
+}
+
+Callback Function IrisFNumberHandler(string data)
+{
+	Iris_F_Number = data;	
+}
+
+
+Callback Function ZoomModeHandler(integer data)
+{
+	Trace("ZoomModeHandler Callback");
+}
+
+
+
+// ********* PTZ Callback **********
+
+    
+Callback Function InstallPositionHandler(integer data)
+{
+	if (data = 0)
+	{
+    	isDesktop = On;
+		isHanging = Off;
+	}
+
+	else if (data = 1)
+	{
+     	isDesktop = Off;
+		isHanging = On;
+	}
+
+	else
+	{
+    	Trace("InstallPositionHandler: Unknown Value");
+	}
+}
+
+Callback Function PanTiltSpeedModeHandler(integer data)
+{
+	if (data = 0)
+	{
+    	PanTiltSpeed_IsNormal 	= On;
+		PanTiltSpeed_IsFast1 	= Off;
+		PanTiltSpeed_IsFast2 	= Off;
+	}
+
+	else If (data = 1)
+	{
+    	PanTiltSpeed_IsNormal 	= Off;
+		PanTiltSpeed_IsFast1 	= On;
+		PanTiltSpeed_IsFast2 	= Off;
+	}
+
+
+	else If (data = 2)
+	{
+    	PanTiltSpeed_IsNormal 	= Off;
+		PanTiltSpeed_IsFast1 	= Off;
+		PanTiltSpeed_IsFast2 	= On;
+	}
+
+
+	Else	
+	{
+    	Trace("PanTiltSpeedModeHandler: Unknown Value");
+	}
+}
+         
+Callback Function SpeedWithZoomPosHandler(integer data)
+{
+	Trace("SpeedWithZoomPosHandler Callback");
+}
+
+
+Callback Function FocusAdjustWithPTZHandler(integer data)
+{
+	if (data = 0)
+	{
+    	FocusAdjustWithPTZ_IsOn = off;
+		FocusAdjustWithPTZ_IsOff = on;
+	} 
+
+	else if (data = 1)
+	{
+   		FocusAdjustWithPTZ_IsOn = on;
+		FocusAdjustWithPTZ_IsOff = off;
+ 	
+	}
+
+	else
+	{
+    	Trace("FocusAdjustWithPTZ: Unknown Value");
+	}
+}
+     
+Callback Function PrivacyModeHandler(integer data)
+{
+	if (data = 0)
+	{
+    	PrivacyIsOn = off;
+		PrivacyIsOff = on;
+	} 
+
+	else if (data = 1)
+	{
+   		PrivacyIsOn = on;
+		PrivacyIsOff = off;
+ 	
+	}
+
+	else
+	{
+    	Trace("PrivacyModeHandler: Unknown Value");
+	}
+}
+
+
+Callback Function PowerOnPositionHandler(integer data)
+{
+	Trace("PowerOnPositionHandler Callback");
+}
+
+Callback Function PowerOnPresetNumberHandler(integer data)
+{
+	Trace("PowerOnPresetNumberHandler Callback");
+} 
+      
+Callback Function LimitationControlHandler(integer data1, integer data2)
+{
+	Trace("LimitationControlHandler Callback");
+}
+  
+Callback Function PresetDExtenderHandler(integer data)
+{
+	Trace("PresetDExtenderHandler Callback");
+}
+
+Callback Function  PresetScopeHandler(integer data)
+{
+	Trace("PresetScopeHandler Callback");
+}
+
+Callback Function  PresetZoomModeHandler(integer data)
+{
+	Trace("PresetZoomModeHandler Callback");
+}
+
+
+Callback Function  PanTiltAbsolutePositionHandler(integer data1, integer data2)
+{
+	PanPos = data1;
+	TiltPos = data2;
+}
+
+
+// ********* Preset Callback *********
+     
+
+Callback Function PresetSpeedUnitHandler(integer data)
+{
+	Trace("PresetSpeedUnitHandler Callback");
+}
+
+Callback Function PresetSpeedTableHandler(integer data)
+{
+	Trace("PresetSpeedTableHandler Callback");
+}
+
+Callback Function PresetSpeedHandler(integer data)
+{
+	Trace("PresetSpeedHandler Callback");
+}
+
+Callback Function PresetThumbnailUpdateHandler(integer data)
+{
+	Trace("PresetThumbnailUpdateHandler Callback");
+}
+
+Callback Function PresetNameHandler(integer data)
+{
+	Trace("PresetNameHandler Callback");
+}
+
+
+Callback Function RequestLatestRecallPresetHandler(integer data)
+{
+	Trace("RequestLatestRecalledPresetHandler Callback");
+}
+
+Callback Function SavePresetNameHandler(integer data, string presetName)
+{
+	Trace("SavePresetNameHandler Callback");
+}
+
+Callback Function PresetNameCounterHandler(integer data1, integer data2)
+{
+	Trace("PresetNameCounterHandler Callback");
+}
+                    
+Callback Function  PresetIrisHandler(integer data)
+{
+	Trace("PresetIrisHandler Callback");
+}
+
+Callback Function  PresetShutterHandler(integer data)
+{
+	Trace("PresetShutterHandler Callback");
+}
+
+Callback Function  FreezeDuringPresetHandler(integer data)
+{
+	Trace("FreezeDuringPresetHandler Callback");
+}
+
+
+Callback Function PresetNameStringHandler(integer data1, string data2)
+{
+	integer valueOneBased, arrayIndex;
+
+	valueOneBased = data1 + 1;
+
+	if (valueOneBased >= 1 && valueOneBased <= 9)
+	{
+    	arrayIndex = valueOneBased;
+	}
+
+	else if (valueOneBased >= 10 && valueOneBased <= 18)
+	{
+    	arrayIndex = valueOneBased - 9;
+	}
+
+	else if (valueOneBased >= 19 && valueOneBased <= 27)
+	{
+    	arrayIndex = valueOneBased - 18;
+	}
+
+    else if (valueOneBased >= 28 && valueOneBased <= 36)
+	{
+    	arrayIndex = valueOneBased - 27;
+	}
+      
+	else if (valueOneBased >= 37 && valueOneBased <= 45)
+	{
+    	arrayIndex = valueOneBased - 36;
+	}
+
+	else if (valueOneBased >= 46 && valueOneBased <= 54)
+	{
+    	arrayIndex = valueOneBased - 45;
+	}
+
+	else if (valueOneBased >= 55 && valueOneBased <= 63)
+	{
+    	arrayIndex = valueOneBased - 54;
+	}
+
+	else if (valueOneBased >= 64 && valueOneBased <= 72)
+	{
+    	arrayIndex = valueOneBased - 63;
+	}
+
+	else if (valueOneBased >= 73 && valueOneBased <= 81)
+	{
+    	arrayIndex = valueOneBased - 72;
+	}
+
+	else if (valueOneBased >= 82 && valueOneBased <= 90)
+	{
+    	arrayIndex = valueOneBased - 81;
+	}
+
+	else if (valueOneBased >= 91 && valueOneBased <= 99)
+	{
+    	arrayIndex = valueOneBased - 90;
+	}
+
+	else if (valueOneBased >= 100)
+	{
+    	arrayIndex = valueOneBased - 99;
+	}
+
+   	else
+	{
+		Trace("***Number: %d / Name: %s ***", arrayIndex, data2);
+	}
+
+	Preset_Name[arrayIndex] = data2;
+}
+
+Callback Function PresetUpdateHandler(integer number, integer value)
+{
+
+	if (value = 0)
+	{
+		giPresetPresent[number] = 0;
+	}
+
+	else if (value = 1)
+	{
+    	giPresetPresent[number] = 1;
+	}
+
+	else
+	{
+    	Trace("AnalogPresetPresent: Unknown Value");
+	}
+}
+
+
+
+
+// ********* Brightness Callback *********
+
+Callback Function PictureLevelHandler(integer data)
+{
+  	Picture_Level_FB = data;
+}
+
+Callback Function IrisModeHandler(integer data)
+{
+   	if (data = 0)
+	{
+      	Iris_Is_Auto = Off;
+		Iris_Is_Manual = On;
+	}
+
+	else if (data = 1)
+	{
+      	Iris_Is_Auto = On;
+		Iris_Is_Manual = Off;
+	}
+
+	else
+	{
+		Trace("IrisModeHandler: Unknown Value");
+	}
+
+}
+
+Callback Function AutoIrisSpeedHandler(integer data)
+{
+   	if (data = 0)
+	{
+		AutoIrisSpeed_IsSlow = On;
+		AutoIrisSpeed_IsNormal = Off;
+		AutoIrisSpeed_IsFast = Off;
+	}
+
+	else if (data = 1)
+	{
+		AutoIrisSpeed_IsSlow = Off;
+		AutoIrisSpeed_IsNormal = On;
+		AutoIrisSpeed_IsFast = Off;
+	}
+
+	else if (data = 2)
+	{
+		AutoIrisSpeed_IsSlow = Off;
+		AutoIrisSpeed_IsNormal = Off;
+		AutoIrisSpeed_IsFast = On;
+	}
+
+	else
+	{
+		Trace("AutoIrisSpeedHandler: Unknown Value");
+
+	}
+
+}
+
+Callback Function AutoIrisWindowHandler(integer data)
+{
+   	if (data = 0)
+	{
+		AutoIrisWindow_IsNormal1 = On;
+		AutoIrisWindow_IsNormal2 = Off;
+		AutoIrisWindow_IsCenter = Off;
+	}
+
+	else if (data = 1)
+	{
+		AutoIrisWindow_IsNormal1 = Off;
+		AutoIrisWindow_IsNormal2 = On;
+		AutoIrisWindow_IsCenter = Off;
+	}
+	
+	
+	else if (data = 2)
+	{
+		AutoIrisWindow_IsNormal1 = Off;
+		AutoIrisWindow_IsNormal2 = Off;
+		AutoIrisWindow_IsCenter = On;
+	}
+
+
+	else
+	{
+		Trace("AutoIrisWindowHandler: Unknown Value");
+
+	}
+
+}
+
+Callback Function ShutterModeHandler(string data)
+{
+ 	ShutterMode = data;
+}
+
+Callback Function StepValueHandler(string data)
+{
+  	Trace("StepValueHandler Callback");
+
+}
+
+Callback Function SynchroValueHandler(string data)
+{
+ 	Trace("SynchroValueHandler Callback");
+
+}
+
+
+Callback Function IrisLimitHandler(integer data)
+{
+  	if (data = 0)
+	{
+    	IrisLimit_IsOn = Off;
+		IrisLimit_IsOff = On;
+	}
+
+	else if (data = 1)
+	{
+    	IrisLimit_IsOn = On;
+		IrisLimit_IsOff = Off;
+	}
+
+	else
+	{
+  		Trace("IrisLimitHandler: Unknown Value");
+  	
+	}
+
+}
+
+
+
+Callback Function ELCLimitHandler(string data)
+{
+ 	Trace("ELCLimitHandler Callback");
+}
+
+
+Callback Function GainHandler(string data)
+{
+ 	Gain = data;
+}
+
+
+Callback Function  SuperGainHandler(integer data)
+{
+	Trace("SuperGainHandler Callback");
+}
+
+Callback Function  AGCMaxGainHandler(string data)
+{
+	Trace("AGCMaxGainHandler Callback");
+}
+
+Callback Function  FramMixHandler(string data)
+{
+	Trace("FramMixHandler Callback");
+}
+
+Callback Function  AutoFMixMaxGainHandler(string data)
+{
+	Trace("AutoFMixMaxHandler Callback");
+}
+
+Callback Function  BacklightCompHandler(integer data)
+{
+	Trace("BacklightCompHandler Callback");
+}
+
+Callback Function  SpotlightCompHandler(integer data)
+{
+	Trace("SpotlightCompHandler Callback");
+}
+
+Callback Function  FlickerSupressionHandler(integer data)
+{
+	Trace("FlickerSupressionHandler Callback");
+}
+
+      
+
+// ********* Picture Callback *********
+
+Callback Function  WhiteBalanceModeHandler(string data)
+{
+	WhiteBalanceMode = data;
+}
+
+
+Callback Function  ColorTempHandler(integer data1, string data2)
+{
+	Trace("ColorTempHandler Callback");
+}
+
+Callback Function  RGainHandler(integer data)
+{
+	Trace("RGainHandler Callback");
+}
+
+Callback Function  BGainHandler(integer data)
+{
+	Trace("BGainHandler Callback");
+}
+
+Callback Function  AWBColorTempHandler(integer data1, string data2)
+{
+	Trace("AWBColorTempHandler Callback");
+}
+
+Callback Function  AWBGainOffsetHandler(integer data)
+{
+	Trace("AWBGainOffsetHandler Callback");
+}
+
+Callback Function  ATWTargetRGainHandler(signed_integer data)
+{
+	Trace("ATW argetRGainHandler Callback");
+}
+
+Callback Function  ATWTargetBGainHandler(signed_integer data)
+{
+	Trace("ATWTargetBGainHandler Callback");
+}
+
+Callback Function  ChromaPhaseHandler(signed_integer data)
+{
+	Trace("ChromaPhaseHandler Callback");
+}
+
+Callback Function  MasterPedestalHandler(signed_integer data)
+{
+	Trace("MasterPedestalHandler Callback");
+}
+
+Callback Function  DetailCoringHandler(integer data)
+{
+	Trace("DetailCoringHandler Callback");
+}
+
+Callback Function  GammaHandler(string data)
+{
+	Trace("GammaHandler Callback");
+}
+
+Callback Function  ATWSpeedChangeHandler(integer data)
+{
+	Trace("ATWSpeedChangeHandler Callback");
+}
+
+Callback Function  MasterDetailHandler(signed_integer data)
+{
+	Trace("MasterDetailHandler Callback");
+}
+
+
+// ********* Matrix Callback *********
+
+Callback Function  AdaptiveMatrixHandler(integer data)
+{
+	Trace("AdaptiveMatrixHandler Callback");
+}
+
+                                         
+// ********* Output Callback *********
+
+Callback Function  ColorbarHandler(integer data)
+{
+	Trace("ColorbarHandler Callback");
+}
+
+Callback Function  TalyEnableHandler(integer data)
+{
+	Trace("TallyEnableHandler Callback");
+}
+
+Callback Function  ErrorInformationHandler(integer data)
+{
+	Trace("ErrorInfoHandler Callback");
+}
+
+Callback Function  CamRTallyControlHandler(integer data)
+{
+	Trace("CamRTallyControlHandler Callback");
+}
+
+Callback Function  PTZRTallyControlHandler(integer data)
+{
+	Trace("PTZRTallyControlHandler Callback");
+}
+
+Callback Function  GTallyControlHandler(integer data)
+{
+	Trace("GTallyControlHandler Callback");
+}
+
+
+// ********* OSD Callback *********
+
+Callback Function  MenuStatusHandler(integer data)
+{
+	Trace("Menu Status Callback");
+}
+
+	        
+// ********* Remote Controller Callback *********
+
+Callback Function  OperationLockStatusHandler(integer data1, string data2)
+{
+	Trace("Operation Lock Callback");
+}
+    
+
+	        
+// ********* Maintenance Callback *********
+
+Callback Function  ErrorInfoHandler(integer data)
+{
+	if (data = 0)
+	{
+     	Normal = On;
+		Fan_Error = Off;
+		Other_Error = Off;
+	}
+
+	else if (data = 1)
+	{
+     	Normal = Off;
+		Fan_Error = On;
+		Other_Error = Off;
+	}
+
+	else if (data = 2)
+	{
+     	Normal = Off;
+		Fan_Error = Off;
+		Other_Error = On;
+	}
+
+	else
+	{
+     	Trace("ErrorInfoHandler: Unknown Value");
+	}
+}
+
+
+Callback Function  LatestErrorInfoHandler(string data)
+{
+	Error = data;
+}
+
+
+//Function Main
+
+Function Main()
+
+{
+	WaitForInitializationComplete();
+
+	// Scene Delegates
+    RegisterDelegate(myCore, OnSceneFileChange, SceneFileHandler);
+
+	// System Delegates
+	RegisterDelegate(myCore, OnPowerStatusChange, PowerStatusHandler);
+    RegisterDelegate(myCore, OnModelChange, ModelHandler);
+	RegisterDelegate(myCore, OnTitleChange, TitleHandler);
+    RegisterDelegate(myCore, OnFormatChange, FormatHandler);
+	RegisterDelegate(myCore, OnFrequencyChange, FrequencyHandler);
+	RegisterDelegate(myCore, OnUSBModeChange, USBModeHandler);
+	RegisterDelegate(myCore, OnUSBAutoActiveChange, USBAutoActiveHandler);
+	RegisterDelegate(myCore, OnUSBAutoStandbyChange, USBAutoStandbyHandler);
+
+	// Lens Delegates                    
+	RegisterDelegate(myCore, OnFocusModeChange, FocusModeHandler);
+	RegisterDelegate(myCore, OnDigitalFocusModeChange, DigitalFocusModeHandler);
+	RegisterDelegate(myCore, OnAFSensitivityChange, AFSensitivityHandler);
+	RegisterDelegate(myCore, OnDigitalZoomChange, DigitalZoomHandler);
+	RegisterDelegate(myCore, OnIZoomChange, IZoomHandler);
+	RegisterDelegate(myCore, OnMaxDigitalZoomChange, MaxDigitalZoomHandler);
+	RegisterDelegate(myCore, OnDigitalExtenderChange, DigitalExtenderHandler);
+	RegisterDelegate(myCore, OnZoomScaleChange, ZoomScaleHandler);
+	RegisterDelegate(myCore, OnDigitalZoomMagnificationChange, DigitalZoomMagnificationHandler);
+	RegisterDelegate(myCore, OnOISChange, OISHandler);
+    RegisterDelegate(myCore, OnZoomSpeedUpdateChange, ZoomSpeedUpdateHandler);
+	RegisterDelegate(myCore, OnZoomPositionControlChange, ZoomPositionControlHandler);
+	RegisterDelegate(myCore, OnFocusPositionControlChange, FocusPositionControlHandler);
+	RegisterDelegate(myCore, OnIrisPositionControlChange, IrisPositionControlHandler);
+	RegisterDelegate(myCore, OnIrisFNumberChange, IrisFNumberHandler);
+	RegisterDelegate(myCore, OnZoomModeChange, ZoomModeHandler);
+
+	// PTZ Delegates    
+	RegisterDelegate(myCore, OnInstallPositionChange, InstallPositionHandler);
+    RegisterDelegate(myCore, OnPanTiltSpeedModeChange, PanTiltSpeedModeHandler);
+	RegisterDelegate(myCore, OnSpeedWithZoomPosChange, SpeedWithZoomPosHandler);
+	RegisterDelegate(myCore, OnFocusAdjustWithPTZChange, FocusAdjustWithPTZHandler);
+	RegisterDelegate(myCore, OnPrivacyModeChange, PrivacyModeHandler);
+	RegisterDelegate(myCore, OnPowerOnPositionChange, PowerOnPositionHandler);
+	RegisterDelegate(myCore, OnPowerOnPresetNumberChange, PowerOnPresetNumberHandler);
+	RegisterDelegate(myCore, OnLimitationControlChange, LimitationControlHandler);
+	RegisterDelegate(myCore, OnPresetDExtenderChange, PresetDExtenderHandler);
+	RegisterDelegate(myCore, OnPresetScopeChange, PresetScopeHandler);
+	RegisterDelegate(myCore, OnPresetZoomModeChange, PresetZoomModeHandler);
+	RegisterDelegate(myCore, OnPanTiltAbsolutePositionChange, PanTiltAbsolutePositionHandler);
+	
+
+	// Preset Delegates
+    RegisterDelegate(myCore, OnPresetSpeedUnitChange, PresetSpeedUnitHandler);
+	RegisterDelegate(myCore, OnPresetSpeedTableChange, PresetSpeedTableHandler);
+	RegisterDelegate(myCore, OnPresetSpeedChange, PresetSpeedHandler);
+	RegisterDelegate(myCore, OnPresetThumbnailUpdateChange, PresetThumbnailUpdateHandler);
+	RegisterDelegate(myCore, OnPresetNameChange, PresetNameHandler);
+	RegisterDelegate(myCore, OnRequestLatestRecallPresetChange, RequestLatestRecallPresetHandler);
+	RegisterDelegate(myCore, OnSavePresetNameChange, SavePresetNameHandler);
+	RegisterDelegate(myCore, OnPresetNameCounterChange, PresetNameCounterHandler);
+	RegisterDelegate(myCore, OnPresetIrisChange, PresetIrisHandler);
+	RegisterDelegate(myCore, OnPresetShutterChange, PresetShutterHandler);
+	RegisterDelegate(myCore, OnFreezeDuringPresetChange, FreezeDuringPresetHandler);
+	RegisterDelegate(myCore, OnPresetNameStringChange, PresetNameStringHandler);
+	RegisterDelegate(myCore, OnPresetUpdateChange, PresetUpdateHandler);
+
+
+	// Brightness Delegates
+    RegisterDelegate(myCore, OnPictureLevelChange, PictureLevelHandler);
+	RegisterDelegate(myCore, OnIrisModeChange, IrisModeHandler);
+	RegisterDelegate(myCore, OnAutoIrisSpeedChange, AutoIrisSpeedHandler);
+	RegisterDelegate(myCore, OnAutoIrisWindowChange, AutoIrisWindowHandler);
+	RegisterDelegate(myCore, OnShutterModeChange, ShutterModeHandler);
+	RegisterDelegate(myCore, OnStepValueChange, StepValueHandler);
+	RegisterDelegate(myCore, OnSynchroValueChange, SynchroValueHandler);
+	RegisterDelegate(myCore, OnIrisLimitChange, IrisLimitHandler);
+	RegisterDelegate(myCore, OnELCLimitChange, ELCLimitHandler);
+    RegisterDelegate(myCore, OnGainChange, GainHandler);
+  	RegisterDelegate(myCore, OnSuperGainChange, SuperGainHandler);
+    RegisterDelegate(myCore, OnAGCMaxGainChange, AGCMaxGainHandler);
+	RegisterDelegate(myCore, OnFramMixChange, FramMixHandler);
+	RegisterDelegate(myCore, OnAutoFMixMaxChange, AutoFMixMaxGainHandler);
+	RegisterDelegate(myCore, OnBacklightCompChange, BacklightCompHandler);
+	RegisterDelegate(myCore, OnSpotlightCompChange, SpotlightCompHandler);
+	RegisterDelegate(myCore, OnFlickerSupressionChange, FlickerSupressionHandler);
+
+	// Picture Delegates
+	RegisterDelegate(myCore, OnWhiteBalanceModeChange, WhiteBalanceModeHandler);
+	RegisterDelegate(myCore, OnColorTempChange, ColorTempHandler);
+	RegisterDelegate(myCore, OnRGainChange, RGainHandler);
+	RegisterDelegate(myCore, OnBGainChange, BGainHandler);
+	RegisterDelegate(myCore, OnAWBColorTempChange, AWBColorTempHandler);
+	RegisterDelegate(myCore, OnAWBGainOffsetChange, AWBGainOffsetHandler);
+	RegisterDelegate(myCore, OnATWTargetRGainChange, ATWTargetRGainHandler);
+	RegisterDelegate(myCore, OnATWTargetBGainChange, ATWTargetBGainHandler);
+	RegisterDelegate(myCore, OnChromaPhaseChange, ChromaPhaseHandler);
+	RegisterDelegate(myCore, OnMasterPedestalChange, MasterPedestalHandler);
+	RegisterDelegate(myCore, OnDetailCoringChange, DetailCoringHandler);
+	RegisterDelegate(myCore, OnGammaChange, GammaHandler);
+	RegisterDelegate(myCore, OnATWSpeedChange, ATWSpeedChangeHandler);
+	RegisterDelegate(myCore, OnMasterDetailChange, MasterDetailHandler);
+
+	// Matrix Delegates
+	RegisterDelegate(myCore, OnAdaptiveMatrixChange, AdaptiveMatrixHandler);
+
+    // Output Delegates
+	RegisterDelegate(myCore, OnColorbarChange, ColorbarHandler);
+	RegisterDelegate(myCore, OnTallyEnableChange, TalyEnableHandler);
+	RegisterDelegate(myCore, OnErrorInformationChange, ErrorInformationHandler);
+	RegisterDelegate(myCore, OnCamRTallyControlChange, CamRTallyControlHandler);
+	RegisterDelegate(myCore, OnPTZRTallyControlChange, PTZRTallyControlHandler);
+	RegisterDelegate(myCore, OnGTallyControlChange, GTallyControlHandler);
+
+	// OSD Delegates
+	RegisterDelegate(myCore, OnMenuStatusChange, MenuStatusHandler);
+	        
+	// Remote Controller Delegates
+	RegisterDelegate(myCore, OnOperationLockStatusChange, OperationLockStatusHandler);
+	        
+	// Maintenance Delegates
+	RegisterDelegate(myCore, OnErrorInformationChange, ErrorInfoHandler);
+	RegisterDelegate(myCore, OnLatestErrorInfoChange, LatestErrorInfoHandler);
+}

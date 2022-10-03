@@ -1,0 +1,13 @@
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\PanasonicUE.dll
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\PanasonicUE.pdb
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\SimplSharpCustomAttributesInterface.dll
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\SimplSharpHelperInterface.dll
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\Newtonsoft.Json.Compact.dll
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\obj\Debug\PanasonicUE.dll
+C:\Users\JHarding.WHITWAM\Documents\VS2008 Projects\PanasonicNew\PanasonicUE\PanasonicUE\obj\Debug\PanasonicUE.pdb
+\\Mac\Home\Documents\Visual Studio 2008\Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\PanasonicUE.dll
+\\Mac\Home\Documents\Visual Studio 2008\Projects\PanasonicNew\PanasonicUE\PanasonicUE\bin\Debug\PanasonicUE.pdb
+\\Mac\Home\Documents\Visual Studio 2008\Projects\PanasonicNew\PanasonicUE\PanasonicUE\obj\Debug\ResolveAssemblyReference.cache
+\\Mac\Home\Documents\Visual Studio 2008\Projects\PanasonicNew\PanasonicUE\PanasonicUE\obj\Debug\PanasonicUE.dll
+\\Mac\Home\Documents\Visual Studio 2008\Projects\PanasonicNew\PanasonicUE\PanasonicUE\obj\Debug\PanasonicUE.pdb
